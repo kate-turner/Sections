@@ -1,10 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import StreamList from "./src/components/StreamList/StreamList";
+// import StreamList from "./src/components/StreamList/StreamList";
 import StreamDetail from "./src/components/StreamDetail/StreamDetail";
-
-
 
 import { Navigation } from "react-native-navigation";
 import AuthScreen from "./src/screens/Auth/Auth";
@@ -30,6 +28,7 @@ export default class App extends React.Component {
       selectedStream: null,
       logged: null,
   }
+
 }
 
   componentDidMount(){
@@ -38,6 +37,7 @@ export default class App extends React.Component {
         this.setState({
           streamsData: data.value.timeSeries
         })
+
       }).catch((err) => {
         console.log(err, 'in streams data api')
       });
@@ -55,6 +55,8 @@ export default class App extends React.Component {
         return err
       }
   }
+
+
 
   streamSelectedHandler = key => {
     console.log(key + 'this is the key of stream')
@@ -78,9 +80,7 @@ export default class App extends React.Component {
         onStreamSelected={this.streamSelectedHandler}
        />
       <StreamDetail selectedStream={this.state.selectedStream} />
-      <Auth/>
-      
-
+    
       </View>
     );
   }
