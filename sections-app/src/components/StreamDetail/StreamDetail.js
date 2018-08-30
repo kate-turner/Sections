@@ -5,17 +5,21 @@ const streamDetail = props => {
 	let modalContent = null;
 
 	if (props.selectedStream) {
-		modalConent = (
+		modalContent = (
 			<View>
-				<Text>This is Stream Detail Modal</Text>
+				<Text> {props.selectedStream.sourceInfo.siteName} 
+						
+						
+				</Text>
 			</View>
 		)
 	}
 	return (
 		<Modal visible={props.selectedStream !== null}>
 			<View style={styles.modalContainer}>
-				{modalContent} 
-			<Text> XXXXXXXXXXXXXXXXXXX </Text>
+				{modalContent}
+				<Text> Helllo detail page </Text> 
+			
 			</View>
 		</Modal>
 	);

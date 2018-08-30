@@ -36,13 +36,16 @@ export default class App extends React.Component {
       }
   }
 
-  streamSelectedHandler = id => {
+  streamSelectedHandler = key => {
+    console.log(key + 'this is the key of stream')
     this.setState(prevState => {
       return {
         selectedStream: prevState.streamsData.find(stream => {
-          return stream.id === id;
+          return stream.key === key;
         })
+
       };
+      console.log(key + 'this is the key of stream')
     });
   }
   
