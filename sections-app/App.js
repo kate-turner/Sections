@@ -1,7 +1,26 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
 import StreamList from "./src/components/StreamList/StreamList";
 import StreamDetail from "./src/components/StreamDetail/StreamDetail";
+
+
+
+import { Navigation } from "react-native-navigation";
+import AuthScreen from "./src/screens/Auth/Auth";
+import StreamListScreen from "./src/screens/StreamList/StreamList"; 
+import MapsScreen from "./src/screens/Maps/Maps";
+// Register Screens
+Navigation.registerComponent("sections-app.AuthScreen", () => AuthScreen);
+Navigation.registerComponent("sections-app.StreamListScreen", () => StreamListScreen);
+Navigation.registerComponent("sections-app.MapsScreen", () => MapsScreen);
+// Start a App
+Navigation.startSingleScreenApp({
+  screen: {
+    screen: "sections-app.AuthScreen",
+    title: "Login"
+  }
+});
 
 export default class App extends React.Component {
   constructor(props){
@@ -9,6 +28,7 @@ export default class App extends React.Component {
     this.state = {
       streamsData: [],
       selectedStream: null,
+      logged: null,
   }
 }
 
@@ -58,6 +78,7 @@ export default class App extends React.Component {
         onStreamSelected={this.streamSelectedHandler}
        />
       <StreamDetail selectedStream={this.state.selectedStream} />
+      <Auth/>
       
 
       </View>
@@ -74,3 +95,6 @@ const styles = StyleSheet.create({
 
   },
 });
+
+
+

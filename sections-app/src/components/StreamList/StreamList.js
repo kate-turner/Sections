@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Alert, StyleSheet, FlatList, Text, View, TouchableOpacity, List } from "react-native";
+import { material } from 'react-native-typography'
 
 
 class StreamList extends Component {
